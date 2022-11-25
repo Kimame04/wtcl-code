@@ -1,5 +1,5 @@
 
-bop = {'fg': 0, 've': 0, 'chr': 10, 'css': 0, 'egl': 0, 'mts': 5, 'rnl': 0}
+bop = {'fg': 0, 've': 0, 'chr': 10, 'css': 0, 'egl': 0, 'mts': 5, 'rnl': 0, 'fg': 0, 've': 0}
 
 if __name__ == "__main__":
     team = input("team: ")
