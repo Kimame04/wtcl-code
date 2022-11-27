@@ -8,7 +8,7 @@ https://disboard.org/server/946893614808723496
 ## Todo
 
 - Chief engineer effects
-- reliability
+- All-in-one file generation
 
 ## Generate drivers
 
@@ -37,3 +37,9 @@ Works for the [V8FU](https://www.racedepartment.com/downloads/v8factor-unleashed
 Execute `generate_veh.py`.
 
 Creates the .veh file which accompanies a livery .dds file. Contains livery, vehicle, team and driver information.
+
+## Generate engine files
+
+Execute `generate_engine_ini.py`
+
+Creates an .ini file from reliability upgrades information.
