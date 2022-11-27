@@ -5,6 +5,11 @@ A collection of scripts that help automate proccesses in the Discord racing team
 Join WTCL here:
 https://disboard.org/server/946893614808723496
 
+## Todo
+
+- Chief engineer effects
+- reliability
+
 ## Generate drivers
 
 Execute `generate_drivers.py`.
