@@ -58,8 +58,8 @@ if __name__ == "__main__":
     team_short = input('Enter short team name: ')
     team_long = input('Enter long team name: ')
     model = input('Enter model: ').lower()
-    pair_1 = input('Enter driver 1 name, number, series: ').split(',')
-    pair_2 = input('Enter driver 2 name, number, series: ').split(',')
-    pair_3 = input('Enter driver 3 name, number, series: ').split(',')
+    pair_1 = input('Enter driver 1 name, number, contract: ').split(',')
+    pair_2 = input('Enter driver 2 name, number, contract: ').split(',')
+    pair_3 = input('Enter driver 3 name, number, contract: ').split(',')
     pairs = [pair_1, pair_2, pair_3]
     generate_veh(team_short, team_long, model, pairs)

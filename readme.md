@@ -5,10 +5,11 @@ A collection of scripts that help automate proccesses in the Discord racing team
 Join WTCL here:
 https://disboard.org/server/946893614808723496
 
-## Todo
+## Generate hdv, engine and veh files
 
-- Chief engineer effects
-- All-in-one file generation
+Execute `generate_combined.py`
+
+All-in-one file generation for a single team. The .veh files reference the .hdv and the engine.ini files, so depending on team parameters all are generated together.
 
 ## Generate drivers
 
