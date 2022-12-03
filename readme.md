@@ -5,17 +5,23 @@ A collection of scripts that help automate proccesses in the Discord racing team
 Join WTCL here:
 https://disboard.org/server/946893614808723496
 
+## Todo
+
+- generate_combined for all teams (useful in pre-season)
+- youth driver improvements
+- merchandise sales code
+
 ## Generate hdv, engine and veh files
 
 Execute `generate_combined.py`
 
 All-in-one file generation for a single team. The .veh files reference the .hdv and the engine.ini files, so depending on team parameters all are generated together.
 
-## Generate drivers
+## Generate a driver
 
 Execute `generate_drivers.py`.
 
-Randomises driver's age, nationality, stats.
+Randomises a new driver's age, nationality, stats.
 
 WIP: Handle youth drivers
 
@@ -23,7 +29,7 @@ WIP: Handle youth drivers
 
 Execute `generate_rcd.py`.
 
-Generates driver talent files from an excel of drivers, taken from the WTCL hub. Updated quarterly with the driver improvements.
+Generates all driver talent files from an excel of drivers, taken from the WTCL hub. Updated quarterly with the driver improvements.
 
 ## Generate hdv
 

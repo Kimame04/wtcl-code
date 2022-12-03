@@ -5,9 +5,9 @@ if __name__ == "__main__":
     team_long = input("team name: ")
     model = input("model code: ")
     clasS = input("class: ") # itcl, wtcl
-    pair_1 = input('Enter driver 1 name, number, series: ').split(',')
-    pair_2 = input('Enter driver 2 name, number, series: ').split(',')
-    pair_3 = input('Enter driver 3 name, number, series: ').split(',')
+    pair_1 = input('Enter driver 1 name, number, contract: ').split(',')
+    pair_2 = input('Enter driver 2 name, number, contract: ').split(',')
+    pair_3 = input('Enter driver 3 name, number, contract: ').split(',')
     ce_multiplier = 1 + float(input("chief engineer effect (in %): ")) * 0.01
     pairs = [pair_1, pair_2, pair_3]
     

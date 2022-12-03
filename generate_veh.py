@@ -24,7 +24,7 @@ def generate_veh(team_short, team_long, model, pairs, clasS):
                     f"\nDescription=\"#{pair[1]}\""
                     f"\nEngine=\"5.397cc V8 HEMI\""
                     f"\nManufacturer=\"Dodge\""
-                    f"\nClasses=\"ITCC\""
+                    f"\nClasses=\"{clasS.upper()}{pair[2].lower()}\""
                     f"\n\nFullTeamName=\"{team_long}\""
                 )
                 f.write("\nTeamFounded=2013\nTeamHeadquarters=\"Mula\"\nTeamStarts=1\nTeamPoles=0\nTeamWins=0\nTeamWorldChampionships=0")
@@ -48,7 +48,7 @@ def generate_veh(team_short, team_long, model, pairs, clasS):
                     f"\nDescription=\"#{pair[1]}\""
                     f"\nEngine=\"Prodrive\""
                     f"\nManufacturer=\"888 Race Engineering\""
-                    f"\nClasses=\"V8SCCE\""
+                    f"\nClasses=\"{clasS.upper()}{pair[2].lower()}\""
                     f"\n\nFullTeamName=\"{team_long}\""
                 )
                 f.write("\nTeamFounded=2013\nTeamHeadquarters=\"Mula\"\nTeamStarts=1\nTeamPoles=0\nTeamWins=0\nTeamWorldChampionships=0")
