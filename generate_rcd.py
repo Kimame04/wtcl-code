@@ -1,13 +1,15 @@
 import pandas as pd
+import unicodedata
 
 if __name__ == '__main__':
     dest = "drivers/"
     df = pd.read_excel('drivers.xlsx')
     for index, row in df.iterrows():
-        filename = row['Name'].replace(" ", "") + ".rcd"
+        formatted_name = unicodedata.normalize('NFD', row['Name']).encode('ascii', 'ignore').decode()
+        filename = formatted_name.replace(" ", "") + ".rcd"
         with open(f"{dest}{filename}", "w") as f:
             f.write(
-                f"{row['Name']}\n{{"
+                f"{formatted_name}\n{{"
                 f"\nNationality=Danish"
                 f"\nDateofBirth=2-28-85"
                 f"\nStarts=28"
