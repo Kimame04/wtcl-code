@@ -32,7 +32,7 @@ def generate_veh(team_short, team_long, model, pairs, clasS):
             else:
                 f.write(
                     f"defaultLivery={team_short}_{pair[1]}.dds"
-                    f"\nHDVehicle={model}.hdv"
+                    f"\nHDVehicle={team_short}.hdv"
                     f"\nGraphics={model}_Upgrades.gen"
                     f"\nSpinner={model}CE_spinner.gen"
                     f"\nUpgrades={model}_upgrades.ini"
