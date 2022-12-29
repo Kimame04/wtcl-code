@@ -3,7 +3,7 @@ import unicodedata
 
 if __name__ == '__main__':
     dest = "drivers/"
-    df = pd.read_excel('drivers.xlsx')
+    df = pd.read_excel('hub-cheatsheet.xlsx')
     for index, row in df.iterrows():
         formatted_name = unicodedata.normalize('NFD', row['Name']).encode('ascii', 'ignore').decode()
         filename = formatted_name.replace(" ", "") + ".rcd"
