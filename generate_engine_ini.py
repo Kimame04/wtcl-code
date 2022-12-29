@@ -1,6 +1,4 @@
-
-def generate_engine_ini(team, clasS, ce_multiplier):
-    num_upgrades = int(input("reliability upgrades: "))
+def generate_engine_ini(team, clasS, ce_multiplier, num_upgrades):
     if num_upgrades >= 0:
         true_reliability = 37000 + 500 * num_upgrades * ce_multiplier
     else: 
@@ -16,4 +14,5 @@ if __name__ == "__main__":
     team = input("team: ")
     clasS = input("class: ").lower()
     ce_multiplier = 1 + float(input("chief engineer effect (in %): ")) * 0.01
-    generate_engine_ini(team,clasS, ce_multiplier)
+    num_upgrades = int(input("reliability upgrades: "))
+    generate_engine_ini(team, clasS, ce_multiplier, num_upgrades)
