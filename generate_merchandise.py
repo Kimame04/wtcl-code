@@ -1,4 +1,10 @@
 import random
+import click
+
+@click.command()
+@click.option('--base', help='team fanbase')
+@click.option('--rep', help='team reputation')
+@click.option('--series', help='series (e.g ITCL, WTCL)')
 
 def generate_merchandise(base, rep, series):
     multipliers = {'itcl': 3, 'wtcl': 5}
@@ -7,8 +13,5 @@ def generate_merchandise(base, rep, series):
     print(f"new fanbase: {new_base} (change: {new_base - base})")
 
 if __name__ == '__main__':
-    base = int(input("enter base fanbase: "))
-    rep = int(input("enter reputation: "))
-    series = input("enter series: ").lower()
-    generate_merchandise(base, rep, series)
+    generate_merchandise()
 

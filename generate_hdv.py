@@ -1,8 +1,16 @@
+import click
 
+@click.command()
+@click.option('--team', help='team shorthand')
+@click.option('--model', help='car model')
+@click.option('--ce', help='chief engineer effect')
+@click.option('--aero', help='body aero value')
+@click.option('--drag', default=None, help='body drag value')
+@click.option('--weight', help='weight reduction value')
 
-def generate_hdv(team, model, ce_multiplier, aero, drag, weight):
+def generate_hdv(team, model, ce, aero, drag, weight):
     bop = {'fg': 0, 've': 0, 'chr': 10, 'css': 0, 'egl': 0, 'mts': 5, 'rnl': 0, 'fg': 0, 've': 0}
-
+    ce_multiplier = 1 + ce * 0.01
     if model == 'fg' or model == 've': #V8Factor
         aero_value = 0.200 - 0.01 * int(aero) * ce_multiplier
         drag_value = 0.080 - 0.01 * int(drag) * ce_multiplier
@@ -21,7 +29,4 @@ def generate_hdv(team, model, ce_multiplier, aero, drag, weight):
 
 
 if __name__ == "__main__":
-    team = input("team: ")
-    model = input("model code: ").lower()
-    ce_multiplier = 1 + float(input("chief engineer effect (in %): ")) * 0.01
-    generate_hdv(team, model, ce_multiplier)
+    generate_hdv()

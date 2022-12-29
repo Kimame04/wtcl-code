@@ -5,35 +5,26 @@ A collection of scripts that help automate proccesses in the Discord racing team
 Join WTCL here:
 https://disboard.org/server/946893614808723496
 
+Note: Some changes have been effected in the WTCL Hub Cheatsheet, which is only available to Board Members
+
 ## Todo
 
-- generate_combined for all teams (useful in pre-season)
-- youth driver improvements
-- merchandise sales code
+- Excel-based generation of all files, replacing `generate_combined.py` and `generate_veh.py`. Both files are considered deprecated.
+- Implement `click` for `timestamp`
 
-## Generate hdv, engine and veh files
+## Generate upgrades
 
-```
-python generate_combined.py
-```
-
-All-in-one file generation for a single team. The .veh files reference the .hdv and the engine.ini files, so depending on team parameters all are generated together.
-
-Example:
+Reads from the hub cheatsheet and calls on `generate_hdv` and `generate_engine_ini` accordingly.
 
 ```
-team code: astra
-team name: Astra Racing Team
-model code: egl
-class: itcl
-Enter driver 1 name, number, contract: Syd Van Der Linde,31,ft
-Enter driver 2 name, number, contract: Carlos Ramirez,32,ft
-Enter driver 3 name, number, contract: Kiril Despodov,33,rumble
-chief engineer effect (in %): 6
-reliability upgrades: 2
+python generate_upgrades.py --race=r5
 ```
 
-Files can be found in the `itcl/` or `wtcl/` directory.
+```
+Options:
+  --race TEXT  round number for upgrades
+  --help       Show this message and exit.
+```
 
 ## Generate a driver
 
@@ -53,75 +44,59 @@ Generates all driver talent files from an excel of drivers, taken from the WTCL 
 
 Files can be found in the `drivers/` directory.
 
-## Generate hdv
+## Update fanbase
+
+Updates a team's fanbase count (and thus affecting merchandise sales) for the next WTCL season.
 
 ```
-python generate_hdv.py
+python generate_merchandise.py --base=100000 --rep=75 --series=itcl
 ```
+
+```
+Options:
+  --base TEXT    team fanbase
+  --rep TEXT     team reputation
+  --series TEXT  series (e.g ITCL, WTCL)
+  --help         Show this message and exit.
+```
+
+## Generate hdv
 
 Adjusts the weight, drag and aero coefficients to the corresponding to the respective vehicle upgrades.
 
-Examples:
-
 ```
-team: astra
-model code: egl
-chief engineer effect (in %): 6
-upgrades, separate commas: 1,0
+python generate_hdv.py --team=astra --model=egl --ce=6 --aero=1 --drag=0 --weight=0
 ```
 
 ```
-team: ester 
-model code: fg
-chief engineer effect (in %): 9
-upgrades, separate commas: 2,4,6
-```
-
-Files can be found in the `itcl/` or `wtcl/` directory.
-
-## Generate veh
-
-```
-python generate_veh.py
-```
-
-Creates the .veh file which accompanies a livery .dds file. Contains livery, vehicle, team and driver information.
-
-Example:
-
-```
-Enter short team name: astra
-Enter long team name: Astra Racing Team
-Enter model: egl
-Enter driver 1 name, number, contract: Syd Van Der Linde,31,ft
-Enter driver 2 name, number, contract: Carlos Ramirez,32,ft
-Enter driver 3 name, number, contract: Kiril Despodov,33,rumble
+Options:
+  --team TEXT    team shorthand
+  --model TEXT   car model
+  --ce TEXT      chief engineer effect
+  --aero TEXT    body aero value
+  --drag TEXT    body drag value
+  --weight TEXT  weight reduction value
+  --help         Show this message and exit.
 ```
 
 Files can be found in the `itcl/` or `wtcl/` directory.
+
 
 ## Generate engine files
 
-```
-python generate_engine_ini.py
-```
-
 Creates an .ini file from reliability upgrades information. Enter the upgrades as negative if they fail to make the activity check too.
 
-Examples:
-
 ```
-team: astra
-class: itcl
-chief engineer effect (in %): 6
-reliability upgrades: 3
+python generate_engine_ini.py --team=astra --series=itcl --ce=6 --rel=3
 ```
 
 ```
-team: astra
-class: itcl
-chief engineer effect (in %): 6
-reliability upgrades: -1
+Options:
+  --team TEXT          team shorthand
+  --series TEXT        series (e.g ITCL, WTCL)
+  --ce TEXT            chief engineer effect
+  --num_upgrades TEXT  reliability level
+  --help               Show this message and exit.
 ```
 
 Files can be found in the `itcl/` or `wtcl/` directory.
