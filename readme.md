@@ -34,10 +34,16 @@ python generate_drivers.py
 
 Randomises a new driver's age, nationality, stats.
 
-## Generate driver rcd
+## Generate talent files
 
 ```
-python generate_rcd.py
+python generate_talent.py --season=s6-1
+```
+
+```
+Options:
+  --season TEXT  [season number]-[half]
+  --help         Show this message and exit.
 ```
 
 Generates all driver talent files from an excel of drivers, taken from the WTCL hub. Updated every half season with the driver improvements.
@@ -59,47 +65,6 @@ Options:
   --series TEXT  series (e.g ITCL, WTCL)
   --help         Show this message and exit.
 ```
-
-## Generate hdv
-
-Adjusts the weight, drag and aero coefficients to the corresponding to the respective vehicle upgrades.
-
-```
-python generate_hdv.py --team=astra --model=egl --ce=6 --aero=1 --drag=0 --weight=0
-```
-
-```
-Options:
-  --team TEXT    team shorthand
-  --model TEXT   car model
-  --ce TEXT      chief engineer effect
-  --aero TEXT    body aero value
-  --drag TEXT    body drag value
-  --weight TEXT  weight reduction value
-  --help         Show this message and exit.
-```
-
-Files can be found in the `itcl/` or `wtcl/` directory.
-
-
-## Generate engine files
-
-Creates an .ini file from reliability upgrades information. Enter the upgrades as negative if they fail to make the activity check too.
-
-```
-python generate_engine_ini.py --team=astra --series=itcl --ce=6 --rel=3
-```
-
-```
-Options:
-  --team TEXT          team shorthand
-  --series TEXT        series (e.g ITCL, WTCL)
-  --ce TEXT            chief engineer effect
-  --num_upgrades TEXT  reliability level
-  --help               Show this message and exit.
-```
-
-Files can be found in the `itcl/` or `wtcl/` directory.
 
 ## Mods
 
