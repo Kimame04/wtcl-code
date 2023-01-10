@@ -1,11 +1,16 @@
 import pandas as pd
 import unicodedata
+import click
 
-if __name__ == '__main__':
+@click.command()
+@click.option('--season', help="[season number]-[half]")
+
+def writeDrivers(season):
     dest = "drivers/"
-    df = pd.read_excel('hub-cheatsheet.xlsx')
+    excel_file = pd.ExcelFile('hub-cheatsheet.xlsx')
+    df = excel_file.parse(f'drivers-{season}')
     for index, row in df.iterrows():
-        formatted_name = unicodedata.normalize('NFD', row['Name']).encode('ascii', 'ignore').decode()
+        formatted_name = unicodedata.normalize('NFD', str(row['Name'])).encode('ascii', 'ignore').decode()
         filename = formatted_name.replace(" ", "") + ".rcd"
         with open(f"{dest}{filename}", "w") as f:
             f.write(
@@ -17,8 +22,8 @@ if __name__ == '__main__':
                 f"\nWins=0"
                 f"\nDriversChampionships=0"
                 f"\nAggression={row['Aggression']}"
-                f"\nReputation={row['Reputation']}"
-                f"\nCourtesy={row['Composure']}"
+                f"\nReputation=0"
+                f"\nCourtesy=0"
                 f"\nComposure={row['Composure']}"
                 f"\nSpeed={row['Speed']}"
                 f"\nCrash=0"
@@ -26,4 +31,6 @@ if __name__ == '__main__':
                 f"\nCompletedLaps=0"
                 f"\nMinRacingSkill={row['Minimum Racing Skill']}\n}}"
             )
-            
+
+if __name__ == '__main__':
+    writeDrivers()
