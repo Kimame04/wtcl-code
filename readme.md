@@ -9,8 +9,8 @@ Note: Some changes have been effected in the WTCL Hub Cheatsheet, which is only 
 
 ## Todo
 
-- Excel-based generation of all files, replacing `generate_combined.py` and `generate_veh.py`. Both files are considered deprecated.
 - Implement `click` for `timestamp`
+- Support for WTCCEX and Clio Cup mods
 
 ## Generate upgrades
 
@@ -64,6 +64,22 @@ Options:
   --rep TEXT     team reputation
   --series TEXT  series (e.g ITCL, WTCL)
   --help         Show this message and exit.
+```
+
+## Generate GDB section
+
+Creates section of a .gdb file to paste into the track .gdb file, thus creating a pre-set grid. More info on this in [this](http://angelodeasa.blogspot.com/2010/11/rfactor-misc-starting-grid-editing-part.html?m=1) article.
+
+```
+python generate_gdb_section.py --series=wtcl --filename=test.xlsx --pname=kimame_04
+```
+
+```
+Options:
+  --series TEXT    itcl or wtcl?
+  --filename TEXT  name of excel file with quali order
+  --pname TEXT     name of player in rFactor (e.g alexis, proba123)
+  --help           Show this message and exit.
 ```
 
 ## Mods
