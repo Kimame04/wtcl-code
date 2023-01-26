@@ -6,3 +6,6 @@ wtcl/
 drivers.xlsx
 hub-cheatsheet.xlsx
 deprecated/
+temp.py
+wtcl-feature-race-grid.txt
+.gitignore
