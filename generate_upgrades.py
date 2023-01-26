@@ -17,8 +17,8 @@ def loadUpgrades(race):
         if clasS == 'wtcl':
             aero = int(upgrades[0])
             drag = int(upgrades[1])
-            rel = int(upgrades[2])
-            weight = int(upgrades[3])
+            weight = int(upgrades[2])
+            rel = int(upgrades[3])
         else:
             aero = int(upgrades[0])
             weight = int(upgrades[1])

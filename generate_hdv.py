@@ -9,11 +9,11 @@ def generate_hdv(team, model, ce, aero, drag, weight):
         with open(f'wtcl/{team}.hdv', 'w') as f:
             with open(f'reference_hdv/{model.upper()}.hdv') as ve:
                 for line in ve:
-                    f.write(line.replace("Mass=1440.0", f"Mass={weight_value}").replace("RWDragParams=(0.054, 0.0095, 0.0)", f"RWDragParams=({drag_value}, 0.0095, 0)").replace("BodyDragBase=(0.120)", f"BodyDragBase=({aero_value})"))
+                    f.write(line.replace("Mass=1440.0", f"Mass={weight_value}").replace("RWDragParams=(0.054, 0.0095, 0.0)", f"RWDragParams=({drag_value}, 0.0095, 0)").replace("BodyDragBase=(0.120)", f"BodyDragBase=({aero_value})").replace("Normal=V8SC_E85_Engine",f"Normal={team}"))
     else: #ITCC 2013
         aero_value = 0.300 - 0.01 * aero * ce_multiplier
         weight_value = 1100 - 10 * weight * ce_multiplier + bop[model]
         with open(f'itcl/{team}.hdv', 'w') as f:
             with open(f'reference_hdv/{model.upper()}.hdv') as itcl:
                 for line in itcl:
-                    f.write(line.replace("Mass=906.0", f"Mass={weight_value}").replace("BodyDragBase=(0.302)", f"BodyDragBase=({aero_value})").replace("RWDragParams=(0.025, 0.025, 0)", "RWDragParams=(0.100, 0.025, 0)"))
+                    f.write(line.replace("Mass=906.0", f"Mass={weight_value}").replace("BodyDragBase=(0.302)", f"BodyDragBase=({aero_value})").replace("RWDragParams=(0.025, 0.025, 0)", "RWDragParams=(0.100, 0.025, 0)").replace("Normal=gt_engine",f"Normal={team}"))

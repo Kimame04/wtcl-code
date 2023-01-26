@@ -9,3 +9,6 @@ deprecated/
 temp.py
 wtcl-feature-race-grid.txt
 .gitignore
+results.xlsx
+test.xlsx
+wtcl-sprint-race-grid.txt
