@@ -1,0 +1,36 @@
+DefaultLivery="ClioV6Cup_01.dds"
+
+
+HDVehicle=rencliov6_Cup.hdv          
+Graphics=rencliov6_Cup_Upgrades.gen
+Spinner=rencliov6_Cup_Spinner.gen           
+Upgrades=rencliov6_Cup_Upgrades.ini           // Vehicle upgrades information
+GenString=33333                       // Used to generate GMT names in *.gen file
+Cameras=rencliov6_Cams.cam                // Defaults to cams.cfg in UserData directory
+Sounds=rencliov6_cup.sfx                      //Sounds=default.sfx
+HeadPhysics=rencliov6_headphysics.ini          // Affects driver eyepoint only
+Cockpit=rencliov6cup_cockpitinfo.ini
+
+
+//////////////////////////TEAM HISTORY AND INFORMATION///////////////////////////////////////////
+
+
+Number=01
+Team="Renault Clio V6 Cup"
+PitGroup="Group1"
+Driver="Stig"          
+Description="V6 Cup Blue"
+Engine="V6"
+Manufacturer="Renault"
+Classes="ClioV6_Cup"
+
+FullTeamName="Renault Clio V6 Cup"
+TeamFounded= 2012
+TeamHeadquarters="B375 Motorsports"
+TeamStarts=-
+TeamPoles=-
+TeamWins=-
+TeamWorldChampionships=-
+
+
+Category="Renault, ClioV6"

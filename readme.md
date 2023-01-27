@@ -36,6 +36,10 @@ Randomises a new driver's age, nationality, stats.
 
 ## Generate talent files
 
+Generates all driver talent files from an excel of drivers, taken from the WTCL hub. Updated every half season with the driver improvements.
+
+Files can be found in the `drivers/` directory.
+
 ```
 python generate_talent.py --season=s6-1
 ```
@@ -46,9 +50,33 @@ Options:
   --help         Show this message and exit.
 ```
 
-Generates all driver talent files from an excel of drivers, taken from the WTCL hub. Updated every half season with the driver improvements.
+## Generate veh files
 
-Files can be found in the `drivers/` directory.
+Generates .veh files from the non-youth drivers section of the hub cheatsheet.
+
+```
+python generate_veh.py --season=s6-2  
+```
+
+```
+Options:
+  --season TEXT  [season number]-[half]
+  --help         Show this message and exit.
+```
+
+### Generate JTCL veh files
+
+Generates .veh files for JTCL. A stop-gap script as an integration with the standard veh generation script is in the works.
+
+```
+python generate_jtcl_veh.py --season=s6
+```
+
+```
+Options:
+  --season TEXT  [season number] e.g s6
+  --help         Show this message and exit.
+```
 
 ## Update fanbase
 

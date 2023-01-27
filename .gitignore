@@ -3,6 +3,7 @@ __pycache__/
 drivers/
 itcl/
 wtcl/
+jtcl/
 drivers.xlsx
 hub-cheatsheet.xlsx
 deprecated/
@@ -12,3 +13,4 @@ wtcl-feature-race-grid.txt
 results.xlsx
 test.xlsx
 wtcl-sprint-race-grid.txt
+jtcl-feature-race-grid.txt
