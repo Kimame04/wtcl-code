@@ -3,19 +3,29 @@ import click
 import pandas as pd
 
 @click.command()
-@click.option("--series", help="itcl or wtcl?")
+@click.option("--series", help="itcl, wtcl or rumble?")
 @click.option("--filename", default="results.xlsx", help="name of excel file with quali order")
 @click.option("--pname", help="name of player in rFactor (e.g alexis, proba123)")
 
 def generate_gdb_section(filename, pname, series):
-    excel_file = pd.ExcelFile(filename)
-    df = excel_file.parse('Sheet1')
+    if ".xlsx" in filename:
+        excel_file = pd.ExcelFile(filename)
+        df = excel_file.parse('Sheet1')
+    elif ".ini" in filename:
+        df = pd.DataFrame(columns=['name'])
+        with open(filename) as f:
+            for line in f:
+                if "/editgrid" in line: 
+                    name = " ".join(line.split(" ")[2:]).replace("\n","")
+                    df = df.append({'name': name}, ignore_index=True)
     quali_order = df.values.tolist()
     write_file(f"{series}-feature-race-grid", quali_order, pname)
     if series.lower() == 'wtcl':
-        num = int(len(quali_order) / 2) + 1
+        num = int(len(quali_order) / 2) 
         sprint_order = quali_order[:num][::-1] + quali_order[num:]
         write_file(f"{series}-sprint-race-grid", sprint_order, pname)
+    elif series.lower() == 'rumble':
+        write_file(f"rumble-reverse-race-grid", quali_order[::-1], pname)
 
 def write_file(filename, order, pname):
     with open(f"{filename}.txt", "w") as f:
